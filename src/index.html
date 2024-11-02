@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forecast</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="output.css" />
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gradient-to-b from-blue-300 to-indigo-500 min-h-screen text-gray-800">
+  <!-- Header -->
+  <header class="bg-slate-900 p-4 text-white flex justify-between items-center">
+    <h1 class="font-semibold font-mono text-lg">Weather Forecast</h1>
+    <ul class="flex">
+      <li class="mr-5">Home</li>
+      <li><button class="hover:text-yellow-300">Contact Us</button></li>
+    </ul>
+  </header>
+
+  <main class="p-4">
+    <h1 class="text-center font-bold text-4xl mt-5 text-gray-50">Search Your City Here</h1>
+
+    <!-- Search and Location Buttons -->
+    <div class="flex flex-col justify-center items-center">
+      <div class="w-full max-w-md p-4">
+        <input id="city-input" type="text" placeholder="Enter City Name"
+          class="w-full p-3 border border-gray-300 rounded-lg outline-none text-gray-800 placeholder-gray-500" />
+        <button id="search-btn"
+          class="w-full mt-3 p-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition">
+          <i class="fas fa-search mr-2"></i>Search
+        </button>
+        <button id="current-location-btn"
+          class="w-full mt-3 p-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition">
+          <i class="fas fa-location-arrow mr-2"></i>Use Current Location
+        </button>
+
+        <!-- Dropdown for Recent Cities -->
+        <select id="recent-cities" title="recent-cities"
+          class="w-full p-3 mt-3 bg-white border rounded-lg hidden">
+        </select>
+
+        <!-- Error Message Display -->
+        <div id="error-message" class="text-center mt-4 text-red-600 font-semibold"></div>
+
+        <!-- Searched City Display -->
+        <div id="city-name" class="text-center mt-4 text-white text-2xl font-bold"></div>
+      </div>
+
+      <!-- Current Weather Section -->
+      <div class="w-full max-w-4xl p-6 bg-white rounded-lg shadow-lg hideCurrent mt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold text-gray-700">Current Weather Forecast</h2>
+            <p class="mb-1"><strong>Date:</strong> <span id="current-date"></span></p>
+            <p class="mb-1"><strong>Temperature:</strong> <span id="current-temp"></span>°C</p>
+            <p class="mb-1"><strong>Humidity:</strong> <span id="current-humidity"></span>%</p>
+            <p class="mb-1"><strong>Wind Speed:</strong> <span id="current-wind-speed"></span> km/h</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img id="current-icon" class="w-24 h-24 mb-2" alt="Weather Icon" />
+            <p id="current-description" class="text-gray-600"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Days Forecast Section -->
+      <h2 class="text-center text-3xl font-bold text-white mt-8">5 Days Forecast</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-6xl p-4 hideAll">
+        <!-- Individual forecast cards -->
+        <div class="forecast-card bg-white rounded-lg p-6 shadow-lg" id="forecast-1"></div>
+        <div class="forecast-card bg-white rounded-lg p-6 shadow-lg" id="forecast-2"></div>
+        <div class="forecast-card bg-white rounded-lg p-6 shadow-lg" id="forecast-3"></div>
+        <div class="forecast-card bg-white rounded-lg p-6 shadow-lg" id="forecast-4"></div>
+        <div class="forecast-card bg-white rounded-lg p-6 shadow-lg" id="forecast-5"></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
